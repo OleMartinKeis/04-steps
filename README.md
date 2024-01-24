@@ -1,8 +1,5 @@
-# React + Vite
+# React Course
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Learning to use useState, Events and Forms
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Since this is a course and not a project, I will just commit to the main branch.
