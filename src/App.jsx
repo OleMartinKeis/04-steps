@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Bill from "./components/bill";
 const messages = [
     "Learn React ⚛️",
     "Apply for jobs 💼",
@@ -6,6 +7,15 @@ const messages = [
 ];
 
 function App() {
+    return (
+        <div>
+            <Steps />
+            <Bill />
+        </div>
+    );
+}
+
+function Steps() {
     const [step, setStep] = useState(1);
     const [isOpen, setIsOpen] = useState(true);
 
@@ -29,30 +39,48 @@ function App() {
                         <div className={step >= 2 ? "active" : ""}>2</div>
                         <div className={step >= 3 ? "active" : ""}>3</div>
                     </div>
-                    <p className="message">Step : {messages[step - 1]}</p>
+                    <StepMessage step={step}>{messages[step - 1]}</StepMessage>
                     <div className="buttons">
-                        <button
-                            style={{
-                                backgroundColor: "#7950f2",
-                                color: "#fff",
-                            }}
+                        <Button
+                            textColor="#fff"
+                            bgColor="#7950f2"
                             onClick={handlePrevious}
                         >
-                            Previous
-                        </button>
-                        <button
-                            style={{
-                                backgroundColor: "#7950f2",
-                                color: "#fff",
-                            }}
+                            <span>👈</span> Previous
+                        </Button>
+                        <Button
+                            textColor="#fff"
+                            bgColor="#7950f2"
                             onClick={handleNext}
                         >
-                            Next
-                        </button>
+                            Next<span>👉</span>
+                        </Button>
                     </div>
                 </div>
             )}
         </>
+    );
+}
+
+function StepMessage({ step, children }) {
+    return (
+        <div className="message">
+            <h3>Step: {step}</h3> {children}
+        </div>
+    );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {
+    return (
+        <button
+            style={{
+                backgroundColor: bgColor,
+                color: textColor,
+            }}
+            onClick={onClick}
+        >
+            {children}
+        </button>
     );
 }
 
